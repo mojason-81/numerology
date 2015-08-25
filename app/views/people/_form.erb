@@ -1,22 +1,25 @@
 <form action="<%= people_form_action(@person) %>" method = "post" id="<%= people_form_id(@person) %>" class="<%= people_form_class(@person) %>">
 	<input type ="hidden" name="_method" value="<%= people_form_method(@person) %>" />
 	
-	<div>
+	<div class="data-entry">
 		<label for="first_name">First Name:</label>
+		<br />
 		<input type="text" name="first_name" value="<%= @person.first_name %>" />
 	</div>
 
-	<div>
+	<div class="data-entry">
 		<label for="last_name">Last Name:</label>
+		<br />
 		<input type="text" name="last_name" value="<%= @person.last_name %>" />
 	</div>
 
-	<div>
+	<div class="data-entry">
 		<label for="birthdate">Birthdate:</label>
+		<br />
 		<input name="birthdate" type="date" value="<%= people_form_birthdate(@person) %>" />
 	</div>
 	
-	<div>
+	<div class="data-entry">
 		<input class="btn btn-primary" type="submit" />
 	</div>
 	<div>

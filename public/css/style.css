@@ -16,7 +16,11 @@ td a {
 }
 
 .well {
-	background-color: #2e8b57;
+	font-size: 1.25em;
+	background-color: #696969;
+	border-radius: 0.5em;
+	padding: 0.35em;
+	border: 0.08em solid #4B0082;
 	color: black;
 }
 
@@ -29,7 +33,7 @@ td a {
 }
 
 .navbar-static-top {
-	background-color: #2e8b57;
+	background-color: #696969;
 }
 
 .btn, .btn-danger {
@@ -63,10 +67,28 @@ h1 {
 	background-image: url(/images/index.jpg);
 }
 
-.front-page-text {
+#message {
 	font-weight: bold;
 	background-color: rgba(255, 255, 255, 0.6);
 	padding: 0.5em;
 	border-radius:0.5em;
+	color: black;
+	text-shadow: 1px 1px 1px #007580;
 }
 
+.container h1, .container th, .container td, .contaner h2, .container p {
+	color: #007580;
+}
+
+.data-entry {
+	padding: 0.5em;
+	color: #007580;
+}
+
+div hr {
+	border-color: #007580;
+}
+
+.container p {
+	font-size: 1.25em;
+}

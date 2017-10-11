@@ -1,21 +1,21 @@
 get '/people' do
-	@people = Person.all
+  @people = Person.all
   @people = @people.sort_by{|person| person.first_name}
-	erb :"/people/index"
+  erb :"/people/index"
 end
 
 get '/people/new' do
-	@person = Person.new
-	erb :"/people/new"
+  @person = Person.new
+  erb :"/people/new"
 end
 
 post '/people' do
   if params[:birthdate].include?('-')
-    birthdate = Date.strptime(params[:birthdate].gsub('-', ''), "%m%d%Y")
+    birthdate = Date.strptime(params[:birthdate].gsub('-', ''), "%Y%m%d")
   elsif params[:birthdate] == ""
     birthdate = params[:birthdate]
   else
-    birthdate = Date.strptime(params[:birthdate], "%m%d%Y")
+    birthdate = Date.strptime(params[:birthdate], "%Y%m%d")
   end
 
   @person = Person.new(first_name: params[:first_name], last_name: params[:last_name], birthdate: birthdate)
@@ -45,9 +45,9 @@ put '/people/:id' do
   if params[:birthdate] == ''
     @person.birthdate = nil
   elsif params[:birthdate].include?('-')
-    @person.birthdate = Date.strptime(params[:birthdate].gsub('-', ''), "%m%d%Y")
+    @person.birthdate = Date.strptime(params[:birthdate].gsub('-', ''), "%Y%m%d")
   else
-    @person.birthdate = Date.strptime(params[:birthdate], "%m%d%Y")
+    @person.birthdate = Date.strptime(params[:birthdate], "%Y%m%d")
   end
 
   if @person.valid?
@@ -64,7 +64,7 @@ end
 
 get '/people/:id' do
   @person = Person.find(params[:id])
-  birth_path_num = Person.get_birth_path_num(@person.birthdate.strftime("%m%d%Y"))
+  birth_path_num = Person.get_birth_path_num(@person.birthdate.strftime("%Y%m%d"))
   @message = Person.get_message(birth_path_num)  
   erb :"/people/show"
 end
